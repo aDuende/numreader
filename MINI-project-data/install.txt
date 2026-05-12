@@ -1,0 +1,11 @@
+UI และการแจ้งเตือน (Styling & Notifications)
+#ติดตั้ง Tailwind CSS (กรณีที่ยังไม่มี)
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+
+# ติดตั้ง SweetAlert2
+    npm install sweetalert2 --legacy-peer-deps
+
+# ติดตั้งตัววาด Canvas
+    npm install react-canvas-draw --legacy-peer-deps
+    หรือ bun add react-canvas-draw
