@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 
-const API = "http://127.0.0.1:8000";
+const API = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
 
 interface ModelItem {
   name: string;

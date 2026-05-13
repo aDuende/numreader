@@ -23,7 +23,7 @@ const UserPage = () => {
     formData.append("file", blob, "drawing.png");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/predict", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000"}/api/predict`, {
         method: "POST",
         body: formData,
       });
@@ -96,7 +96,7 @@ const UserPage = () => {
     formData.append("label", label);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/collect", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000"}/api/collect`, {
         method: "POST",
         body: formData,
       });

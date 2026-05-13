@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
 
 // Single-digit classes used by the model (index → display label).
 // The classifier only predicts the units digit (๐-๕); the app frames it as
