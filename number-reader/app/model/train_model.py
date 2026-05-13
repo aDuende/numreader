@@ -1,3 +1,4 @@
+import os
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models
 
@@ -32,6 +33,7 @@ test_loss, test_acc = model.evaluate(x_test, y_test)
 print("Test Accuracy:", test_acc)
 
 # Save model
-model.save("app/model/digit_model.h5")
-
-print("Model saved!")
+BASE_DIR = os.path.dirname(__file__)
+MODEL_PATH = os.path.join(BASE_DIR, "thai_digit_model.h5")
+model.save(MODEL_PATH)
+print(f"Saved model to {MODEL_PATH}")

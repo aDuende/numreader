@@ -14,3 +14,4 @@ ml-dtypes==0.3.2
 h5py==3.12.1
 
 requests==2.32.3
+gdown==5.2.0

@@ -4,6 +4,24 @@ import tensorflow as tf
 from app.utils.split_digits import split_digits_from_bytes
 
 ACTIVE_MODEL_PATH = "app/model/thai_digit_model.h5"
+
+
+def _download_model_if_missing():
+    if not os.path.exists(ACTIVE_MODEL_PATH):
+        model_url = os.environ.get("MODEL_URL")
+        if not model_url:
+            raise RuntimeError(
+                "Model file not found and MODEL_URL env var is not set. "
+                "Set MODEL_URL to the Google Drive shareable link."
+            )
+        print(f"[model] Downloading model from Google Drive...")
+        import gdown
+        os.makedirs(os.path.dirname(ACTIVE_MODEL_PATH), exist_ok=True)
+        gdown.download(model_url, ACTIVE_MODEL_PATH, fuzzy=True)
+        print(f"[model] Model downloaded to {ACTIVE_MODEL_PATH}")
+
+
+_download_model_if_missing()
 model = tf.keras.models.load_model(ACTIVE_MODEL_PATH)
 
 
